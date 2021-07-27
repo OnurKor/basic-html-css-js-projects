@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List | Onur KORDOĞAN</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* border: solid; */
+        }
+        body{
+            padding: 0 10px;
+        }
+        #main-outer-container {
+            max-width: 500px;
+            margin: 100px auto;
+            border: solid;
+            background-color: rgba(0,0,0,0.2);
+            padding: 10px;
+        }
+        /* ----- ADD CONTAINER -----*/
+        #add-container {
+            border: solid;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            grid-gap: 10px;
+            margin: 10px auto;
+        }
+
+        #add-container input {
+            width: 60%;
+            padding: 10px;
+            border: none;
+            outline: none;
+            text-align: center;
+            border-radius: 5px;
+            color: chocolate;
+        }
+        #add-container input:focus {
+            background-color: bisque;
+            box-shadow: 0 0 4px 0 black;
+        }
+
+        #add-button {
+            width: 70px;
+            font-weight: bold;
+            background-color: green;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 0 4px 0 black;
+        }
+        
+        #reset-button {
+            width: 70px;
+            font-weight: bold;
+            background-color: #f44336;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 0 4px 0 black;
+        }
+
+        /* ----- TO DO CONTAINER -----*/
+        #todo-container {
+            border: solid;
+            padding: 30px 10px;
+        }
+
+        .card-container {
+            border: solid;
+            padding: 10px;
+            background-color: turquoise;
+            display: flex;
+            justify-content: space-around;
+            grid-gap: 10px;
+            align-items: center;
+        }
+
+        .card-container input {
+            /* padding: 5px; */
+            /* display: block; */
+            width: 15px;
+            height: 30px;
+        }
+
+        .card-container input:checked + .screen {
+            background-color: saddlebrown;
+            color: snow;
+            text-decoration: line-through;
+        }
+        .screen {
+            width: 80%;
+            border: solid;
+            padding: 10px;
+        }
+       
+        .card-container button {
+            width: 50px;
+            height: 50px;
+            padding: 10px 5px;
+            font-weight: bold;
+            border-radius: 20px;
+            border: none;
+            background-color: red;
+        }
+
+        </style>
+</head>
+<body>
+    <div id="main-outer-container">
+
+        <div id="add-container">
+            <input type="text">
+            <button id="add-button">ADD</button>
+            <button id="reset-button">RESET</button>
+        </div>
+        <div id="todo-container">
+            <div class="card-container">
+                <input type="checkbox" name="" id="">
+                <div class="screen">Be Happy!...</div>
+                <button>DEL</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const text = document.querySelector("#add-container input");
+        const add = document.getElementById("add-button");
+        const reset = document.getElementById("reset-button");
+        const todocontainer = document.getElementById("todo-container");
+        const del = document.querySelectorAll(".card-container button");
+        const del1 = document.querySelectorAll(".card-container");
+
+        reset.addEventListener("click", () => {
+            text.value = "";
+        });
+        
+        add.addEventListener("click", () => {
+            let text1 = text.value;
+            if (text1.length > 0) {
+                todocontainer.innerHTML += `
+                <div class="card-container">
+                    <input type="checkbox" name="" id="">
+                    <div class="screen">${text1}</div>
+                    <button>DEL</button>
+                </div>
+                `;
+                text.value = "";
+            };
+        });
+        
+
+        del.addEventListener("click", () => {
+            del1.innerHTML = ""
+        });
+
+    </script>
+</body>
+</html>
