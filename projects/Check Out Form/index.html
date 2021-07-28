@@ -22,30 +22,31 @@
             font-family: "Montserrat Regular";
         }
 
-        body {}
+        body {
+            padding: 10px;
+        }
+        body > h1 {
+            text-align: center;
+        }
 
         #main-outer-container {
-            width: 1400px;
+            width: 1100px;
             /* border: solid; */
-            margin: 100px auto;
+            margin: 30px auto;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-gap: 10px;
+            grid-gap: 30px;
             padding: 10px 100px;
         }
 
         /* ----- FORM CONTAINER -----*/
         #form-container {
             /* border: solid; */
-            padding: 10px;
-        }
-
-        #form-container form {
-            /* border: solid; */
+            padding: 5px;
         }
 
         #form-container form h3 {
-            font-size: 1.5em;
+            font-size: 1.1em;
             color: rgba(0, 0, 0, 0.8);
 
         }
@@ -66,33 +67,38 @@
             justify-content: space-evenly;
             grid-gap: 5px;
             /* border: 1px solid rgba(0, 0, 0, 0.609); */
-            height: 50px;
+            height: 35px;
             /* border-radius: 10px; */
             position: relative;
         }
 
 
         .input-container span {
-            font-size: 2em;
+            font-size: 1em;
             text-align: center;
-            margin-top: 10px;
-            color: rgba(0, 0, 0, 0.6);
+            /* margin-top: 10px; */
+            color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 10px;
+            left: 10px;
             z-index: 5;
+            /* padding-right: 20px; */
         }
 
         .input-container input {
             width: 100%;
-            font-size: 1.3em;
-            font-weight: 500;
-            color: rgba(0, 0, 0, 0.6);
+            font-size: 0.9em;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.7);
             border: 1px solid rgba(0, 0, 0, 0.609);
-            border-radius: 10px;
+            border-radius: 5px;
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            padding-left: 70px;
+            padding-left: 35px;
+            outline: none;
         }
 
         #country-info {
@@ -107,10 +113,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            padding-left: 70px;
-            border-radius: 10px;
-            font-size: 1.2em;
-            font-weight: 600;
+            padding-left: 30px;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: 500;
+        }
+        
+        .input-container.country-container span {
+            padding-left: 7px;
         }
 
         #checkbox-container {
@@ -121,8 +131,8 @@
         }
 
         #checkbox-container input{
-            width: 20px;
-            height: 20px;
+            width: 15px;
+            height: 15px;
         }
         /* #checkbox-container label{} */
         
@@ -131,23 +141,100 @@
             text-align: right;
         }
         #btn-container button {
-            font-size: 1.3em;
-            padding: 20px 10px;
-            border-radius: 15px;
-            background-color: orange;
+            font-size: 0.8em;
+            padding: 15px 10px;
+            border-radius: 10px;
+            background-color:darkorange;
             color: white;
             font-weight: 600;
-            
+            border: none;
         }
 
         /* ----- SHOPPING CONTAINER -----*/
         #shopping-container {
-            border: solid;
-        }
+            height: 400px;
+            width: 350px;
+            padding: 20px;
+            background-color: #dfdfdf;
+            border-radius: 10px;
+       }
+
+       .card {
+           /* border: solid; */
+           display: flex;
+           grid-gap: 20px;
+           margin-bottom: 20px;
+       }
+       .card img {
+           height: 110px;
+           width: 90px;
+           border-radius: 10px;
+       }
+
+       .shopinfo h4 {
+           color: rgba(0, 0, 0, 0.8);
+           margin-bottom: 5px;
+       }
+       .shopinfo p{
+        margin-bottom: 30px;
+        color: orange;
+        font-weight: bold;
+       }
+       .shopinfo p span {
+        color: black;
+        font-weight:lighter;
+        font-size: 13px;
+        text-decoration: line-through;
+       }
+       .plusminus {
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+        padding: 5px 8px;
+        width: fit-content;
+
+       }
+       .plusminus button {
+           border: none;
+           padding: 0 5px;
+           font-size: 1.2em;
+           font-weight: bold;
+           border-radius: 3px;
+           background-color: rgba(0, 0, 0, 0.1);
+       }
+       .plusminus span {
+        margin:  0 20px;
+       }
+
+       .card-info {
+           margin-top: 60px;
+       }
+       .card-info .totalinfo {
+           border-top: 1px solid rgba(0, 0, 0, 0.3);
+           margin-top: 10px;
+           display: flex;
+           justify-content: space-between;
+       }
+
+       @media (max-width:920px) {
+           #main-outer-container {
+               grid-template-columns: 1fr;
+               width: auto;
+               align-items: center;
+               padding: 10px 10px;
+           }
+           .input-container span {
+               text-align: left;
+           }
+           #shopping-container {
+               width: auto;
+               height: auto;
+           }
+       }
     </style>
 </head>
 
 <body>
+    <h1>Checkout</h1>
     <div id="main-outer-container">
         <div id="form-container">
             <form action="" method="get">
@@ -199,7 +286,7 @@
                     </div>
 
                     <div>
-                        <label for="pcode">Country</label>
+                        <label for="pcode">Post Code</label>
                         <div class="input-container">
                             <span class="fas fa-mail-bulk"></span>
                             <input id="pcode" type="text" name="pcode" placeholder="Enter your postal code..." required>
@@ -221,23 +308,31 @@
 
         <div id="shopping-container">
             <div class="card">
-                <img src="" alt="">
+                <img src="./Image/photo1.png" alt="">
                 <div class="shopinfo">
-                    <h4></h4>
-                    <p></p>
-                    <div class="plusminus"><button></button><span></span><button></button></div>
+                    <h4>Vintage Backbag</h4>
+                    <p>$54.99 <span>$94.99</span></p>
+                    <div class="plusminus"><button>-</button><span>1</span><button>+</button></div>
                 </div>
             </div>
             <div class="card">
-                <img src="" alt="">
+                <img src="./Image/photo2.png" alt="">
                 <div class="shopinfo">
-                    <h4></h4>
-                    <p></p>
-                    <div class="plusminus"><button></button><span></span><button></button></div>
+                    <h4>Levi Shoes</h4>
+                    <p>$74.99 <span>$124.99</span</p>
+                    <div class="plusminus"><button>-</button><span>1</span><button>+</button></div>
                 </div>
             </div>
-            <p class="totalinfo">dfsdf</p>
-            <p class="totalinfo">dfsdf</p>
+           <div class="card-info">
+            <p class="totalinfo">             
+                <span>Shipping</span>
+                <span>$19</span>
+            </p>
+            <p class="totalinfo">
+                <span>Total</span>
+                <span>$148.98</span>
+            </p>
+           </div>
         </div>
     </div>
 
